@@ -1,19 +1,20 @@
-import React from 'react';
+import React, { useState } from 'react';
 import { Dimensions, StyleSheet, Text, View } from 'react-native';
 import Carousel from 'react-native-reanimated-carousel';
-import Profile from '../Profile';
+import Cards from '../Cards';
 import Data from '../../Data'
-import Styles from '../../Styles/Styles';
+import  Modal  from 'react-native-modal';
+import { Button } from 'react-native';
+
 
 
 
 
 function Slider() {
     const width = Dimensions.get('window').width;
-
     const profiles = Data.map(profile => {
         return (
-            <Profile
+            <Cards
                 imgUrl={profile.photoUrl}
                 nomeDocente={profile.nomeDocente}
                 didatica={profile.didatica}
@@ -26,6 +27,8 @@ function Slider() {
 
     return (
         <View style={styles.container}>
+           
+
             <View style={styles.melhoresAval}>
                 <Text style={styles.melhoresAvalTitle}>Melhores Avaliados</Text>
                 <Text>Ver todos</Text>
@@ -61,13 +64,14 @@ const styles = StyleSheet.create({
     melhoresAval: {
         flexDirection: 'row',
         justifyContent: "space-between",
+        alignItems: "center",
         marginStart: 20,
         marginEnd: 20,
-        marginTop: 20
+        marginTop: 60
     },
-    melhoresAvalTitle:{
-        fontSize:25,
-        fontWeight:700,
+    melhoresAvalTitle: {
+        fontSize: 25,
+        fontWeight: 700,
     }
 
 

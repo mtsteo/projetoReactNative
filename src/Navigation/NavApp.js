@@ -9,7 +9,7 @@ const NavApp = () => {
 
     return (
         <NavigationContainer>
-            {!userToken ? <AuthStack/> : <AppStack/> }
+            {userToken !== null ? <AppStack/> : <AuthStack/>   }
         </NavigationContainer>
         
     )

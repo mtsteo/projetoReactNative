@@ -8,7 +8,7 @@ import { Feather } from '@expo/vector-icons';
 import {AuthContext} from '../../contexts/AuthContext'
 
 
-const CustomDrawer = (props) => {
+const CustomDrawer = (props,navigation) => {
   const {logOut} = useContext(AuthContext)
 
   const [fontsLoaded] = useFonts({
@@ -20,6 +20,8 @@ const CustomDrawer = (props) => {
   if (!fontsLoaded) {
     return null;
   }
+
+  
 
 
   return (
@@ -37,13 +39,12 @@ const CustomDrawer = (props) => {
       </DrawerContentScrollView>
 
       <View style={{ padding: 20, borderTopWidth: 1, borderTopColor: "#ccc" }}>
-        <TouchableOpacity onPress={() => logOut() } style={{ paddingVertical: 15 }}>
+        <TouchableOpacity onPress={() => {logOut() }} style={{ paddingVertical: 15 }}>
           <View style={{ flexDirection: 'row', alignItems: 'center' }}>
             <Feather name="log-out" size={22} />
             <Text
               style={{
                 fontSize: 15,
-                fontFamily: 'Roboto-400Regular',
                 marginLeft: 5,
               }}>
               Sair

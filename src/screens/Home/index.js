@@ -1,10 +1,8 @@
 import { StyleSheet, View, StatusBar } from 'react-native';
-import Slider from '../../components/Slider';
 import Styles from '../../Styles/Styles';
 import Header from '../../components/Header';
 import TabNav from '../../Navigation/TabNav';
-import { Feather } from '@expo/vector-icons'
-import { Text } from 'react-native';
+import { Text} from 'react-native';
 
 
 
@@ -15,7 +13,6 @@ export default function Home({navigation}) {
   return (
     <View style={styles.container}>
       <Header navigation ={navigation} name='Mateus'/>
-      
       <TabNav/>
     </View>
   );

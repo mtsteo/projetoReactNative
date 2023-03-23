@@ -10,16 +10,7 @@ import { useFonts, Roboto_100Thin, Roboto_700Bold, Roboto_400Regular } from '@ex
 const Drawer = createDrawerNavigator();
 
 export default function TabNavigator() {
-    const [fontsLoaded] = useFonts({
-        Roboto_100Thin,
-        Roboto_700Bold,
-        Roboto_400Regular
-
-    });
-
-    if (!fontsLoaded) {
-        return null;
-    }
+    
 
 
     return (
