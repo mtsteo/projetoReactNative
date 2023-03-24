@@ -1,22 +1,27 @@
 import React, { useState } from 'react';
-import { Dimensions, StyleSheet, Text, View } from 'react-native';
+import { StyleSheet, Text, View, TouchableOpacity } from 'react-native';
 import Carousel from 'react-native-reanimated-carousel';
 import Cards from '../Cards';
 import Data from '../../Data'
-import  Modal  from 'react-native-modal';
-import { Button } from 'react-native';
+import { Dim } from '../../Utils/Dimensions';
+import { useFonts, Roboto_100Thin, Roboto_700Bold } from '@expo-google-fonts/roboto';
+import Styles from '../../Styles/Styles';
+
 
 
 
 
 
 function Slider() {
-    const width = Dimensions.get('window').width;
+
+
+    const width = Dim.WIDTH
     const profiles = Data.map(profile => {
         return (
             <Cards
                 imgUrl={profile.photoUrl}
                 nomeDocente={profile.nomeDocente}
+                sobrenomeDocente={profile.sobrenomeDocente}
                 didatica={profile.didatica}
                 metodologia={profile.metodologia}
                 comprometimento={profile.comprometimento}
@@ -25,13 +30,22 @@ function Slider() {
         )
     })
 
+    const [fontsLoaded] = useFonts({
+        Roboto_100Thin,
+        Roboto_700Bold
+    });
+
+    if (!fontsLoaded) {
+        return null;
+    }
+
     return (
         <View style={styles.container}>
-           
-
             <View style={styles.melhoresAval}>
                 <Text style={styles.melhoresAvalTitle}>Melhores Avaliados</Text>
-                <Text>Ver todos</Text>
+                <TouchableOpacity>
+                    <Text style={{fontFamily:"Roboto_700Bold"}}>Ver todos</Text>
+                </TouchableOpacity>
             </View>
             <Carousel
                 overscrollEnabled
@@ -71,7 +85,7 @@ const styles = StyleSheet.create({
     },
     melhoresAvalTitle: {
         fontSize: 25,
-        fontWeight: 700,
+        fontFamily: "Roboto_700Bold",
     }
 
 

@@ -1,7 +1,8 @@
 export default [{
     id: 1,
     photoUrl: "https://cdn-icons-png.flaticon.com/512/1154/1154464.png",
-    nomeDocente: "Prof° Evelin",
+    nomeDocente: "Evelin",
+    sobrenomeDocente:"Cardoso",
     rankingPosicao: "4",
     metodologia: "4.5",
     didatica: "3.5",
@@ -9,7 +10,8 @@ export default [{
 }, {
     id: 2,
     photoUrl: "https://cdn-icons-png.flaticon.com/512/1154/1154453.png",
-    nomeDocente: "Prof° Koite",
+    nomeDocente: "Koite",
+    sobrenomeDocente:"Yasojoma",
     rankingPosicao: "2",
     metodologia: "4.5",
     didatica: "3.5",
@@ -17,7 +19,8 @@ export default [{
 }, {
     id: 3,
     photoUrl: "https://cdn-icons-png.flaticon.com/512/1154/1154456.png",
-    nomeDocente: "Prof° Eulália",
+    nomeDocente: "Eulália",
+    sobrenomeDocente:"da Mata",
     rankingPosicao: "3",
     metodologia: "4.5",
     didatica: "3.5",
@@ -25,7 +28,8 @@ export default [{
 }, {
     id: 4,
     photoUrl: "https://cdn-icons-png.flaticon.com/512/4556/4556329.png",
-    nomeDocente: "Prof° Carlos",
+    nomeDocente: "Carlos",
+    sobrenomeDocente:"Alberto",
     rankingPosicao: "1",
     metodologia: "4.5",
     didatica: "3.5",
@@ -33,7 +37,8 @@ export default [{
 }, {
     id: 5,
     photoUrl: "https://cdn-icons-png.flaticon.com/512/4556/4556329.png",
-    nomeDocente: "Prof° Cimélio",
+    nomeDocente: "Cimélio",
+    sobrenomeDocente:"Pereira",
     rankingPosicao: "5",
     metodologia: "4.5",
     didatica: "3.5",
@@ -41,7 +46,8 @@ export default [{
 }, {
     id: 6,
     photoUrl: "https://cdn-icons-png.flaticon.com/512/1154/1154454.png",
-    nomeDocente: "Prof° Jean",
+    nomeDocente: "Jean",
+    sobrenomeDocente:"Carlos",
     rankingPosicao: "6",
     metodologia: "4.5",
     didatica: "3.5",
@@ -49,7 +55,8 @@ export default [{
 }, {
     id: 7,
     photoUrl: "https://cdn-icons-png.flaticon.com/512/1154/1154455.png",
-    nomeDocente: "Prof° Lobato",
+    nomeDocente: "Antonio",
+    sobrenomeDocente:"Lobato",
     rankingPosicao: "7",
     metodologia: "4.5",
     didatica: "3.5",
@@ -57,7 +64,8 @@ export default [{
 }, {
     id: 8,
     photoUrl: "https://cdn-icons-png.flaticon.com/512/4556/4556329.png",
-    nomeDocente: "Prof° Almir",
+    nomeDocente: "Almir",
+    sobrenomeDocente:"Pantoja",
     rankingPosicao: "8",
     metodologia: "4.5",
     didatica: "3.5",
@@ -65,7 +73,8 @@ export default [{
 }, {
     id: 9,
     photoUrl: "https://cdn-icons-png.flaticon.com/512/4556/4556329.png",
-    nomeDocente: "Prof° Janice",
+    nomeDocente: "Francisca",
+    sobrenomeDocente:"Janice",
     rankingPosicao: "9",
     metodologia: "4.5",
     didatica: "3.4",
@@ -73,7 +82,8 @@ export default [{
 }, {
     id: 10,
     photoUrl: "https://cdn-icons-png.flaticon.com/512/4556/4556329.png",
-    nomeDocente: "Prof° Fabricio",
+    nomeDocente: "Fabricio",
+    sobrenomeDocente:"Oliveira",
     rankingPosicao: "10",
     metodologia: "4.5",
     didatica: "3.5",

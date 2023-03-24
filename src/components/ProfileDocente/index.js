@@ -28,7 +28,7 @@ const ProfileDocente = (props) => {
           <View style={styles.header}>
             <Card.Cover source={{ uri: props.imgUrl }} style={{ width: 70, height: 70 }} />
             <Text style={{ fontFamily: "Roboto_700Bold", fontSize: 25, marginLeft: 10 }}>
-              {props.nomeDocente}
+              {props.nomeDocente + " " + props.sobrenomeDocente}
             </Text>
           </View>
           <Card.Content>

@@ -31,6 +31,7 @@ export default function Cards(props) {
                     <ProfileDocente
                         imgUrl={props.imgUrl}
                         nomeDocente={props.nomeDocente}
+                        sobrenomeDocente={props.sobrenomeDocente}
                     />
                 </View>
 
@@ -45,7 +46,7 @@ export default function Cards(props) {
                 <Card.Cover source={{ uri: props.imgUrl }} />
                 <Card.Content>
                     <View style={styles.container}>
-                        <Text style={styles.nomeDocente}>{props.nomeDocente}</Text>
+                        <Text style={styles.nomeDocente}>Prof° {props.nomeDocente + " " + props.sobrenomeDocente}</Text>
                     </View>
                     <View>
                         <View>
