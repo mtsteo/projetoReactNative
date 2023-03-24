@@ -9,10 +9,9 @@ import { Text} from 'react-native';
 
 const statusBarHeight = StatusBar.currentHeight ? StatusBar.currentHeight + 22 : 64
 
-export default function Home({navigation}) {
+export default function Home() {
   return (
     <View style={styles.container}>
-      <Header navigation ={navigation} name='Mateus'/>
       <TabNav/>
     </View>
   );

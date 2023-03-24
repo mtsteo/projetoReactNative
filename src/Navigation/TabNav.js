@@ -6,12 +6,13 @@ import Slider from '../components/Slider';
 import Ranking from '../screens/Ranking';
 import { Ionicons } from '@expo/vector-icons';
 import { useFonts, Roboto_100Thin, Roboto_700Bold } from '@expo-google-fonts/roboto';
+import Header from '../components/Header';
 
 
 
 const Tab = createBottomTabNavigator();
 
-export default function TabNav() {
+export default function TabNav({navigation}) {
 
     const [fontsLoaded] = useFonts({
         Roboto_100Thin,
@@ -24,7 +25,10 @@ export default function TabNav() {
 
     return (
         <Tab.Navigator screenOptions={{
-            headerShown: false,
+            header:(({navigation})=>{
+            return(<Header navigation={navigation}  name='Mateus'/>)
+            }),
+            tabBarHideOnKeyboard:true,
             tabBarActiveTintColor: Styles.Colors.colorOrange,
             tabBarInactiveTintColor: Styles.Colors.coloWhite,
             tabBarShowLabel: true,

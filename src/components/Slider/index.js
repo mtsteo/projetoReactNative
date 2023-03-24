@@ -1,5 +1,5 @@
 import React, { useState } from 'react';
-import { StyleSheet, Text, View, TouchableOpacity } from 'react-native';
+import { StyleSheet, Text, View, TouchableOpacity, } from 'react-native';
 import Carousel from 'react-native-reanimated-carousel';
 import Cards from '../Cards';
 import Data from '../../Data'
@@ -81,7 +81,7 @@ const styles = StyleSheet.create({
         alignItems: "center",
         marginStart: 20,
         marginEnd: 20,
-        marginTop: 60
+        marginTop: 50
     },
     melhoresAvalTitle: {
         fontSize: 25,
