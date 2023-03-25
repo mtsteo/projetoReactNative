@@ -1,16 +1,12 @@
 import { Card } from 'react-native-paper';
-import { Text, View, StyleSheet, TouchableOpacity } from 'react-native';
+import { Text, View, StyleSheet, TouchableOpacity, Button } from 'react-native';
 import Styles from '../../Styles/Styles';
-import BarProgress from '../BarProgress'
-import { AirbnbRating } from 'react-native-ratings';
 import Modal from 'react-native-modal';
 import { useState } from 'react';
 import ProfileDocente from '../ProfileDocente';
 import { useFonts, Roboto_100Thin, Roboto_700Bold, Roboto_400Regular } from '@expo-google-fonts/roboto';
 
-
-
-export default function Cards(props) {
+export default function CardsSmall(props) {
     const [isOpen, setIsOpen] = useState(false)
 
     const [fontsLoaded] = useFonts({
@@ -23,7 +19,7 @@ export default function Cards(props) {
         return null;
     }
     return (
-        <View style={{ marginEnd: 25, marginStart: 25 }}>
+        <View style={{ marginEnd: 10, marginStart: 10,marginBottom:10, width: "50%" }}>
             <Modal
                 isVisible={isOpen}
                 style={{ flex: 1, }}>
@@ -40,37 +36,21 @@ export default function Cards(props) {
                     </TouchableOpacity>
                 </View>
             </Modal>
-            <Card onPress={() => setIsOpen(true)} >
-                <Card.Cover source={{ uri: props.imgUrl }} />
+            <Card onPress={() => setIsOpen(true)} style={{ width: 160, height: 300 }} >
+                <Card.Cover source={{ uri: props.imgUrl }} style={{ height: 150 }} />
                 <Card.Content>
                     <View style={styles.container}>
-                        <Text style={{ fontFamily: "Roboto_700Bold", fontSize: 25 }}>Prof° {props.nomeDocente + " " + props.sobrenomeDocente}</Text>
+                        <Text style={{ fontFamily: "Roboto_700Bold", fontSize: 15 }}>{props.nomeDocente + " " + props.sobrenomeDocente}</Text>
                     </View>
-                    <View>
-                        <View>
-                            <Text style={styles.criterio}>Didática</Text>
-                            <BarProgress progress={props.didatica} />
-                        </View>
-                        <View>
-                            <Text style={styles.criterio}>Metodologia</Text>
-                            <BarProgress progress={props.metodologia} />
-                        </View>
-                        <View>
-                            <Text style={styles.criterio}>comprometimento</Text>
-                            <BarProgress progress={props.comprometimento} />
-                        </View>
+                    <View style={{ marginTop: 10 }}>
+                        <TouchableOpacity style={styles.btnVerPerfil}>
+                            <Text style={{ fontFamily: "Roboto_700Bold", fontSize: 20, color: "#fff" }}>Perfil</Text>
+                        </TouchableOpacity>
+                        <TouchableOpacity style={styles.btnAvaliar}>
+                            <Text style={{ fontFamily: "Roboto_700Bold", fontSize: 20, color: "#fff" }}>Avaliar</Text>
+                        </TouchableOpacity>
                     </View>
                 </Card.Content>
-                <View style={styles.rating}>
-                    <AirbnbRating
-                        reviews={['Péssimo', 'Ruim', 'Bom', 'Ótimo', 'Excelente']}
-                        size={30}
-                        isDisabled
-                        defaultRating={3}
-                        reviewSize={25}
-                        showRating
-                    />
-                </View>
             </Card>
         </View>
     )
@@ -82,19 +62,11 @@ const styles = StyleSheet.create({
         alignItems: 'center',
         marginTop: 10
     },
-
     nomeDocente: {
         fontSize: 30,
         fontWeight: 700,
     },
-    criterio: {
-        fontSize: 20,
-        marginTop: 10,
-        fontFamily: "Roboto_400Regular"
-    },
-    rating: {
-        marginBottom: 10
-    },
+
     btnFechar: {
         marginTop: 10,
         width: 60,
@@ -104,7 +76,22 @@ const styles = StyleSheet.create({
         display: "flex",
         justifyContent: "center",
         alignItems: "center"
-    }
+    },
+    btnAvaliar: {
+        backgroundColor: Styles.Colors.colorGreen,
+        borderRadius: 14,
+        height: 40,
+        justifyContent: "center",
+        alignItems: "center",
+    },
+    btnVerPerfil: {
+        backgroundColor: Styles.Colors.colorOrange,
+        borderRadius: 14,
+        height: 40,
+        justifyContent: "center",
+        alignItems: "center",
+        marginBottom: 10
+    },
 
 
 

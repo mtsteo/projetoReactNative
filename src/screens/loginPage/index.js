@@ -26,20 +26,21 @@ const LoginPage = ({ navigation }) => {
         return null;
     }
 
-   
+
 
     return (
-        <View style={{ flex: 1, justifyContent: "center" }}>
+        <View style={{flex:1, backgroundColor: Styles.Colors.colorGreen}}>
             <LoginScreen
-            
+                logoImageSource={(require('../../../assets/images/Logo.png'))}
+                disableDivider
                 disableSocialButtons
                 passwordPlaceholder='Digite sua SENHA'
                 emailContentTooltip={<Text>Preencha os campos corretamente!</Text>}
                 emailPlaceholder='Digite seu USUÁRIO'
                 loginButtonStyle={{ backgroundColor: Styles.Colors.colorOrange }}
-                signupText='Crie uma CONTA' style={{ backgroundColor: Styles.Colors.colorGreen }}
+                signupText='Crie uma CONTA' style={{ marginTop:90, backgroundColor:Styles.Colors.colorGreen }}
                 onLoginPress={() => login()}
-                onSignupPress={() => {login() }}
+                onSignupPress={() => { login() }}
                 onEmailChange={(value) => {
                     setUsername(value);
                 }}
@@ -50,7 +51,6 @@ const LoginPage = ({ navigation }) => {
                 }}
             ></LoginScreen>
         </View>
-
     )
 }
 export default LoginPage;

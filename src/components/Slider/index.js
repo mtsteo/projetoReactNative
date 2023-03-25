@@ -5,11 +5,6 @@ import Cards from '../Cards';
 import Data from '../../Data'
 import { Dim } from '../../Utils/Dimensions';
 import { useFonts, Roboto_100Thin, Roboto_700Bold } from '@expo-google-fonts/roboto';
-import Styles from '../../Styles/Styles';
-
-
-
-
 
 
 function Slider() {

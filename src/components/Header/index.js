@@ -1,12 +1,12 @@
 import React from 'react'
-import { StatusBar, StyleSheet, TouchableOpacity, Text, View } from 'react-native'
+import { StatusBar, StyleSheet, TouchableOpacity, Text, View, Image } from 'react-native'
 import Styles from '../../Styles/Styles'
-import { Feather } from '@expo/vector-icons'
 import { useFonts, Roboto_100Thin, Roboto_700Bold } from '@expo-google-fonts/roboto';
 
 
 const statusBarHeight = StatusBar.currentHeight ? StatusBar.currentHeight + 22 : 64
 export default function Header({ navigation, name }) {
+
 
     const [fontsLoaded] = useFonts({
         Roboto_100Thin,
@@ -17,14 +17,12 @@ export default function Header({ navigation, name }) {
         return null;
     }
 
-
-
     return (
-        <View style={[styles.container, styles.shadowProp]}>
+        <View style={styles.container}>
             <View style={styles.content}>
-                <Text style={{fontSize:25,fontFamily:'Roboto_700Bold', color:"white"}}> {` Olá, ${name} `} </Text>
+                <Text style={{ fontSize: 25, fontFamily: 'Roboto_700Bold', color: "white" }}> {` Olá, ${name} `} </Text>
                 <TouchableOpacity style={styles.buttonUser} onPress={() => navigation.openDrawer()}>
-                    <Feather name='user' size={30} color={'white'} />
+                    <Image source={require('../../../assets/images/ProfilePic.png')} style={{ height: 44, width: 44, borderRadius: 40, }} />
                 </TouchableOpacity>
             </View>
         </View>
