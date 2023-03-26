@@ -25,9 +25,7 @@ const RankigCard = (props) => {
         <Card onPress={() => { }} mode={'elevated'} style={style.container} >
             <TouchableOpacity style={{ flexDirection: "row", alignItems: "center", width:"100%" }}>
                 <Image source={{ uri: props.imgPhoto }} style={{ width: 45, height: 45, marginLeft: 5 }} />
-                <View>
                     <Text style={{ marginLeft: 20, fontFamily: "Roboto_700Bold", fontSize: 20, }}>{props.nomeDocente + " " + props.sobrenomeDocente}</Text>
-                </View>
             </TouchableOpacity>
         </Card>
 
@@ -40,6 +38,9 @@ const style = StyleSheet.create({
         alignItems: "center",
         height: 50,
         margin: 5,
+        borderBottomWidth:4,
+        borderBottomColor:Styles.Colors.colorGreen
+
     }
 })
 

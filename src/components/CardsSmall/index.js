@@ -36,14 +36,14 @@ export default function CardsSmall(props) {
                     </TouchableOpacity>
                 </View>
             </Modal>
-            <Card onPress={() => setIsOpen(true)} style={{ width: 160, height: 300 }} >
+            <Card onPress={() => {}} style={{ width: 160, height: 300 }} >
                 <Card.Cover source={{ uri: props.imgUrl }} style={{ height: 150 }} />
                 <Card.Content>
                     <View style={styles.container}>
                         <Text style={{ fontFamily: "Roboto_700Bold", fontSize: 15 }}>{props.nomeDocente + " " + props.sobrenomeDocente}</Text>
                     </View>
                     <View style={{ marginTop: 10 }}>
-                        <TouchableOpacity style={styles.btnVerPerfil}>
+                        <TouchableOpacity onPress={()=>{setIsOpen(true)}} style={styles.btnVerPerfil}>
                             <Text style={{ fontFamily: "Roboto_700Bold", fontSize: 20, color: "#fff" }}>Perfil</Text>
                         </TouchableOpacity>
                         <TouchableOpacity style={styles.btnAvaliar}>

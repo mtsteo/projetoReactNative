@@ -31,7 +31,6 @@ export default function TabNav({ navigation }) {
                 header: (({ navigation }) => {
                     return (<Header navigation={navigation} name='Mateus' />)
                 }),
-                headerStatusBarHeight: 0,
                 tabBarHideOnKeyboard: true,
                 tabBarActiveTintColor: Styles.Colors.colorOrange,
                 tabBarInactiveTintColor: Styles.Colors.coloWhite,

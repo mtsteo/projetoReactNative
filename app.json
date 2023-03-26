@@ -1,15 +1,15 @@
 {
   "expo": {
-    "name": "projetoaval",
+    "name": "Sistema de Avaliação",
     "slug": "projetoaval",
     "version": "1.0.0",
     "orientation": "portrait",
-    "icon": "./assets/icon.png",
+    "icon": "./assets/images/icon.png",
     "userInterfaceStyle": "light",
     "splash": {
-      "image": "./assets/splash.png",
+      "image": "./assets/images/splash.png",
       "resizeMode": "contain",
-      "backgroundColor": "#ffffff"
+      "backgroundColor": "#00BF63"
     },
     "assetBundlePatterns": [
       "**/*"
@@ -19,17 +19,23 @@
     },
     "android": {
       "adaptiveIcon": {
-        "foregroundImage": "./assets/adaptive-icon.png",
+        "foregroundImage": "./assets/images/icon.png",
         "backgroundColor": "#ffffff"
-      }
+      },
+      "package": "com.mtsteo.projetoaval"
     },
     "web": {
       "favicon": "./assets/favicon.png"
     },
     "rnpm": {
       "assets": [
-      "./assets/fonts/"
+        "./assets/fonts/"
       ]
-  }
+    },
+    "extra": {
+      "eas": {
+        "projectId": "9809f17b-7e20-4758-859d-e2a306c7e6cc"
+      }
+    }
   }
 }

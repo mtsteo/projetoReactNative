@@ -17,9 +17,7 @@ export default function AuthStack() {
                 <Stack.Screen options={{
                     headerShown: false
                 }} component={RegisterPage} name='register' />
-                <Stack.Screen options={{
-                    headerShown: false
-                }} component={AppStack} name='AppStack' />
+                
             </Stack.Navigator>
     )
 }

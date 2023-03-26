@@ -10,14 +10,14 @@ export default function TabNavigator() {
 
     return (
 
-        <Drawer.Navigator  defaultStatus='open' drawerContent={props => <CustomDrawer {...props} />} screenOptions={{
+        <Drawer.Navigator  initialRouteName='Tela Inicial' drawerContent={props => <CustomDrawer {...props} />} screenOptions={{
             headerShown: false, drawerType: "slide",
             drawerActiveBackgroundColor: Styles.Colors.colorOrange,
             drawerActiveTintColor: Styles.Colors.coloWhite,
             drawerInactiveTintColor: "#333"
         }}>
-            <Drawer.Screen component={Home} name='Tela Inicial' options={{
-                dra: 'true',
+            <Drawer.Screen component={Home} name='Tela Inicial'  options={{
+                
                 drawerLabelStyle: { fontSize: 15, fontFamily: 'Roboto_400Regular', marginLeft: -25 },
                 drawerIcon: ({color}) => (
                     <Feather name='home' size={22} color={color} />
