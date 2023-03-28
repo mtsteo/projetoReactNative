@@ -19,7 +19,7 @@ export default function CardsSmall(props) {
         return null;
     }
     return (
-        <View style={{ marginEnd: 10, marginStart: 10,marginBottom:10, width: "50%" }}>
+        <View style={{margin:'1%'}} >
             <Modal
                 isVisible={isOpen}
                 style={{ flex: 1, }}>

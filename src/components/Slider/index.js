@@ -8,9 +8,8 @@ import { useFonts, Roboto_100Thin, Roboto_700Bold } from '@expo-google-fonts/rob
 
 
 function Slider() {
-
-
     const width = Dim.WIDTH
+    const height = Dim.HEIGHT
     const profiles = Data.map(profile => {
         return (
             <Cards
@@ -21,7 +20,6 @@ function Slider() {
                 metodologia={profile.metodologia}
                 comprometimento={profile.comprometimento}
             />
-
         )
     })
 
@@ -39,24 +37,21 @@ function Slider() {
             <View style={styles.melhoresAval}>
                 <Text style={styles.melhoresAvalTitle}>Melhores Avaliados</Text>
                 <TouchableOpacity>
-                    <Text style={{fontFamily:"Roboto_700Bold"}}>Ver todos</Text>
+                    <Text style={{ fontFamily: "Roboto_700Bold" }}>Ver todos</Text>
                 </TouchableOpacity>
             </View>
             <Carousel
-                overscrollEnabled
+                
+                style={{flex:1}}
                 loop
                 mode='parallax'
                 width={width}
-                height={width + 60}
+                height={height-500}
                 autoPlay={true}
                 data={profiles}
                 scrollAnimationDuration={1000}
                 renderItem={({ item }) => (
-                    <View style={{
-                        flex: 1,
-                        justifyContent: 'center',
-                    }}
-                    >
+                    <View>
                         {item}
                     </View>
                 )
@@ -68,21 +63,20 @@ function Slider() {
 
 const styles = StyleSheet.create({
     container: {
+        flex: 1,
         justifyContent: 'center',
     },
     melhoresAval: {
         flexDirection: 'row',
         justifyContent: "space-between",
         alignItems: "center",
-        marginStart: 20,
-        marginEnd: 20,
-        marginTop: 50
+        marginStart: "5%",
+        marginEnd: "5%",
     },
     melhoresAvalTitle: {
         fontSize: 25,
         fontFamily: "Roboto_700Bold",
     }
-
 
 })
 

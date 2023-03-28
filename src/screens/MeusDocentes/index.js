@@ -21,13 +21,11 @@ const MeusDocentes = () => {
 
     const profiles = Data.map(docente => {
         return (
-            <View key={docente.id}>
                 <CardsSmall key={docente.id}
                     nomeDocente={docente.nomeDocente}
                     imgUrl={docente.photoUrl}
                     sobrenomeDocente={docente.sobrenomeDocente}
                 />
-            </View>
         )
     })
 
@@ -60,7 +58,8 @@ const style = StyleSheet.create({
         color: "#fff"
     },
     profiles: {
-        marginTop:10,
+        justifyContent:"center",
+        marginTop:"5%",
         flex: 1,
         flexDirection: 'row',
         flexWrap: 'wrap',

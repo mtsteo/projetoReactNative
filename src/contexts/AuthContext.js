@@ -1,9 +1,11 @@
 import { useEffect, useState, createContext, } from "react";
 import AsyncStorage from "@react-native-async-storage/async-storage";
+import {API} from '../services/API.js'
 
 export const AuthContext = createContext();
 
 export const AuthProvider = ({ children }) => {
+    const api = API()
     const [user, setUser] = useState(null);
     const [isLoading, setisLoading] = useState(false);
     const [userToken, setUserToken] = useState(null)

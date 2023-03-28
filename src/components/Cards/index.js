@@ -7,7 +7,7 @@ import Modal from 'react-native-modal';
 import { useState } from 'react';
 import ProfileDocente from '../ProfileDocente';
 import { useFonts, Roboto_100Thin, Roboto_700Bold, Roboto_400Regular } from '@expo-google-fonts/roboto';
-
+import { Dim } from '../../Utils/Dimensions';
 
 
 export default function Cards(props) {
@@ -18,12 +18,11 @@ export default function Cards(props) {
         Roboto_700Bold,
         Roboto_400Regular
     });
-
     if (!fontsLoaded) {
         return null;
     }
     return (
-        <View style={{ marginEnd: 25, marginStart: 25 }}>
+        <View style={{ marginEnd: "5%", marginStart: "5%", }}>
             <Modal
                 isVisible={isOpen}
                 style={{ flex: 1, }}>
@@ -40,8 +39,8 @@ export default function Cards(props) {
                     </TouchableOpacity>
                 </View>
             </Modal>
-            <Card onPress={() => setIsOpen(true)} >
-                <Card.Cover source={{ uri: props.imgUrl }} />
+            <Card onPress={() => setIsOpen(true)} style={{height:Dim.HEIGHT - 150}}>
+                <Card.Cover source={{ uri: props.imgUrl }} style={{height:"50%"}} />
                 <Card.Content>
                     <View style={styles.container}>
                         <Text style={{ fontFamily: "Roboto_700Bold", fontSize: 25 }}>Prof° {props.nomeDocente + " " + props.sobrenomeDocente}</Text>
@@ -105,8 +104,4 @@ const styles = StyleSheet.create({
         justifyContent: "center",
         alignItems: "center"
     }
-
-
-
-
 })
