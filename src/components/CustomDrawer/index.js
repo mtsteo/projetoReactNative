@@ -1,5 +1,5 @@
 import React, { useContext } from 'react';
-import { TouchableOpacity, View, Image, ImageBackground } from 'react-native';
+import { TouchableOpacity, View, Image} from 'react-native';
 import { DrawerContentScrollView, DrawerItemList } from '@react-navigation/drawer'
 import { Text } from 'react-native';
 import Styles from '../../Styles/Styles';
@@ -7,8 +7,9 @@ import { useFonts, Roboto_100Thin, Roboto_700Bold, Roboto_400Regular } from '@ex
 import { Feather } from '@expo/vector-icons';
 import { AuthContext } from '../../contexts/AuthContext'
 
-const CustomDrawer = (props, navigation) => {
-  const { logOut } = useContext(AuthContext)
+const CustomDrawer = (props) => {
+  const { logOut, userData } = useContext(AuthContext)
+
 
   const [fontsLoaded] = useFonts({
     Roboto_100Thin,
@@ -21,14 +22,11 @@ const CustomDrawer = (props, navigation) => {
   }
 
 
-
-
   return (
     <View style={{ flex: 1 }}>
-
       <View style={{ padding: 30, borderBottomEndRadius: 20, borderBottomStartRadius: 20, justifyContent: "space-between", backgroundColor: Styles.Colors.colorGreen }}>
         <Image source={require('../../../assets/images/ProfilePic.png')} style={{ height: 80, width: 80, borderRadius: 40, marginBottom: 10 }} />
-        <Text style={{ fontFamily: 'Roboto_700Bold', fontSize: 20, color: Styles.Colors.coloWhite }}>Mateus Eufrásio</Text>
+        <Text style={{ fontFamily: 'Roboto_700Bold', fontSize: 20, color: Styles.Colors.coloWhite }}>{userData.nome_aluno + " " + userData.sobrenome_aluno}</Text>
       </View>
       <DrawerContentScrollView {...props}  >
 

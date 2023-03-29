@@ -6,6 +6,8 @@ import { StyleSheet, ScrollView } from 'react-native';
 import Styles from '../../Styles/Styles';
 import { Dim } from '../../Utils/Dimensions';
 import { useFonts, Roboto_100Thin, Roboto_700Bold, Roboto_400Regular } from '@expo-google-fonts/roboto';
+import { useContext } from 'react';
+import { AuthContext } from '../../contexts/AuthContext.js';
 
 
 const MeusDocentes = () => {
@@ -18,14 +20,15 @@ const MeusDocentes = () => {
     if (!fontsLoaded) {
         return null;
     }
+   
 
     const profiles = Data.map(docente => {
         return (
-                <CardsSmall key={docente.id}
-                    nomeDocente={docente.nomeDocente}
-                    imgUrl={docente.photoUrl}
-                    sobrenomeDocente={docente.sobrenomeDocente}
-                />
+            <CardsSmall key={docente.id}
+                nomeDocente={docente.nomeDocente}
+                imgUrl={docente.photoUrl}
+                sobrenomeDocente={docente.sobrenomeDocente}
+            />
         )
     })
 
@@ -58,8 +61,8 @@ const style = StyleSheet.create({
         color: "#fff"
     },
     profiles: {
-        justifyContent:"center",
-        marginTop:"5%",
+        justifyContent: "center",
+        marginTop: "5%",
         flex: 1,
         flexDirection: 'row',
         flexWrap: 'wrap',

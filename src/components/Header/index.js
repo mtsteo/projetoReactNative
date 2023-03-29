@@ -2,10 +2,13 @@ import React from 'react'
 import { StatusBar, StyleSheet, TouchableOpacity, Text, View, Image } from 'react-native'
 import Styles from '../../Styles/Styles'
 import { useFonts, Roboto_100Thin, Roboto_700Bold } from '@expo-google-fonts/roboto';
+import { useContext } from 'react';
+import { AuthContext } from '../../contexts/AuthContext';
 
 
 const statusBarHeight = StatusBar.currentHeight ? StatusBar.currentHeight + 22 : 64
-export default function Header({ navigation, name }) {
+export default function Header({ navigation,}) {
+    const {userData} = useContext(AuthContext)
 
 
     const [fontsLoaded] = useFonts({
@@ -20,7 +23,7 @@ export default function Header({ navigation, name }) {
     return (
         <View style={styles.container}>
             <View style={styles.content}>
-                <Text style={{ fontSize: 25, fontFamily: 'Roboto_700Bold', color: "white" }}> {` Olá, ${name} `} </Text>
+                <Text style={{ fontSize: 25, fontFamily: 'Roboto_700Bold', color: "white" }}> Olá, {userData.nome_aluno}! </Text>
                 <TouchableOpacity style={styles.buttonUser} onPress={() => navigation.openDrawer()}>
                     <Image source={require('../../../assets/images/ProfilePic.png')} style={{ height: 44, width: 44, borderRadius: 40, }} />
                 </TouchableOpacity>

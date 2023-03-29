@@ -3,7 +3,7 @@ import { useFonts, Roboto_100Thin, Roboto_700Bold, Roboto_400Regular } from '@ex
 import React, { useContext, useState } from 'react';
 import { Text, View } from 'react-native';
 import Styles from '../../Styles/Styles';
-import { AuthContext } from '../../contexts/AuthContext'
+import { AuthContext } from '../../contexts/AuthContext.js'
 
 // import { Container } from './styles';
 
@@ -12,7 +12,11 @@ const LoginPage = ({ navigation }) => {
     const [username, setUsername] = useState('')
     const [password, setPassword] = useState('')
 
-    const { login } = useContext(AuthContext)
+    const {login} = useContext(AuthContext)
+
+    const handleLogin = ()=>{
+        login(username, password)
+    }
 
 
     const [fontsLoaded] = useFonts({
@@ -28,6 +32,7 @@ const LoginPage = ({ navigation }) => {
 
 
 
+
     return (
         <View style={{flex:1, backgroundColor: Styles.Colors.colorGreen}}>
             <LoginScreen
@@ -39,8 +44,8 @@ const LoginPage = ({ navigation }) => {
                 emailPlaceholder='Digite seu USUÁRIO'
                 loginButtonStyle={{ backgroundColor: Styles.Colors.colorOrange }}
                 signupText='Crie uma CONTA' style={{ marginTop:90, backgroundColor:Styles.Colors.colorGreen }}
-                onLoginPress={() => login()}
-                onSignupPress={() => { login() }}
+                onLoginPress={() => {handleLogin()}}
+                onSignupPress={() => { handleLogin() }}
                 onEmailChange={(value) => {
                     setUsername(value);
                 }}
