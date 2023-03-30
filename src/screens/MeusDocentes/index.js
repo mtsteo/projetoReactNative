@@ -6,11 +6,12 @@ import { StyleSheet, ScrollView } from 'react-native';
 import Styles from '../../Styles/Styles';
 import { Dim } from '../../Utils/Dimensions';
 import { useFonts, Roboto_100Thin, Roboto_700Bold, Roboto_400Regular } from '@expo-google-fonts/roboto';
-import { useContext } from 'react';
 import { AuthContext } from '../../contexts/AuthContext.js';
+import { useContext } from 'react';
 
 
 const MeusDocentes = () => {
+    const { userDocentes } = useContext(AuthContext)
     const [fontsLoaded] = useFonts({
         Roboto_100Thin,
         Roboto_700Bold,
@@ -20,14 +21,16 @@ const MeusDocentes = () => {
     if (!fontsLoaded) {
         return null;
     }
-   
 
-    const profiles = Data.map(docente => {
+
+
+    const profiles = userDocentes.map(docente => {
+
         return (
-            <CardsSmall key={docente.id}
-                nomeDocente={docente.nomeDocente}
-                imgUrl={docente.photoUrl}
-                sobrenomeDocente={docente.sobrenomeDocente}
+            <CardsSmall key={docente.id_professor}
+                nomeDocente={docente.nome_professor}
+                imgUrl ={"https://cdn-icons-png.flaticon.com/512/4556/4556329.png"}
+                sobrenomeDocente={docente.sobrenome_professor}
             />
         )
     })

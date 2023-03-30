@@ -8,6 +8,7 @@ export const AuthProvider = ({ children }) => {
     const api = API()
 
     const [userData, setUserData] = useState([]);
+    const [userDocentes, setUserDocentes] = useState([]);
     const [isLoading, setisLoading] = useState(false);
     const [userToken, setUserToken] = useState(null)
 
@@ -18,15 +19,16 @@ export const AuthProvider = ({ children }) => {
         if (data.auth && data.token) {
             const token = await AsyncStorage.setItem('token', data.token)
             setUserToken(token)
-            setUserData(data.user[0])
-            console.log(data.user)
+            setUserData(data.user.data[0])
+            setUserDocentes(data.user.meusdocentes)
             setisLoading(false)
         }
     }
 
-    const validaToken = () => {
+    const validaToken = async () => {
         setisLoading(true)
-        AsyncStorage.getItem('token')
+         const token = await AsyncStorage.getItem('token')
+         api.validarToken(token)
         setisLoading(false)
 
     }
@@ -45,7 +47,12 @@ export const AuthProvider = ({ children }) => {
             setisLoading(true)
             const userToken = await AsyncStorage.getItem('token')
             if (userToken) {
-                setUserToken(userToken)
+                const isValidade = await api.validarToken(userToken)
+                if(isValidade.auth){
+                    setUserToken(userToken)
+                    setUserData(isValidade.user.data[0])
+                    setUserDocentes(isValidade.user.meusdocentes)
+                }
             } else {
                 setUserToken(null)
             }
@@ -59,14 +66,11 @@ export const AuthProvider = ({ children }) => {
         IsLoggedIn()
 
     }, [])
-    useEffect(() => {
-        IsLoggedIn()
-
-    }, [userToken])
-
+  
+    
 
     return (
-        <AuthContext.Provider value={{ userData, login, logOut, IsLoggedIn, SignIn, userToken }}>
+        <AuthContext.Provider value={{ userData, userDocentes, login, logOut, IsLoggedIn, SignIn, userToken }}>
             {children}
         </AuthContext.Provider>
     );
