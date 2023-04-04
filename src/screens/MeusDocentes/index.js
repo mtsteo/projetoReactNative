@@ -27,10 +27,10 @@ const MeusDocentes = () => {
     const profiles = userDocentes.map(docente => {
 
         return (
-            <CardsSmall key={docente.id_professor}
-                nomeDocente={docente.nome_professor}
+            <CardsSmall key={docente.id_docente}
+                nomeDocente={docente.nome}
                 imgUrl ={"https://cdn-icons-png.flaticon.com/512/4556/4556329.png"}
-                sobrenomeDocente={docente.sobrenome_professor}
+                sobrenomeDocente={docente.sobrenome}
             />
         )
     })
