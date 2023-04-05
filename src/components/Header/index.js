@@ -25,8 +25,8 @@ export default function Header({ navigation,}) {
             <View style={styles.content}>
                 <Text style={{ fontSize: 25, fontFamily: 'Roboto_700Bold', color: "white" }}> Olá, {userData.nome_discente}! </Text>
                 <TouchableOpacity style={styles.buttonUser} onPress={() => navigation.openDrawer()}>
-                    <Image source={!userData.fotoRef ? {uri:`https://storage.googleapis.com/sistemaaval/${userData.fotoRef}.png`}:
-                    {uri:`https://storage.googleapis.com/sistemaaval/${userData.fotoRef}.png`}
+                    <Image source={!userData.fotoRef ? {uri:`https://storage.googleapis.com/sistemaaval/0.png`}:
+                    {uri:`https://storage.googleapis.com/sistemaaval/${userData.fotoRef}.jpg`}
                 } style={{ height: 44, width: 44, borderRadius: 40, }} />
                 </TouchableOpacity>
             </View>

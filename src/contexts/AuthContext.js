@@ -1,6 +1,7 @@
 import { useEffect, useState, createContext, } from "react";
 import AsyncStorage from "@react-native-async-storage/async-storage";
 import { API } from '../services/API.js'
+import { RectButton } from "react-native-gesture-handler";
 
 export const AuthContext = createContext();
 
@@ -13,6 +14,7 @@ export const AuthProvider = ({ children }) => {
     const [userToken, setUserToken] = useState(null)
 
 
+
     const login = async (username, password) => {
         setisLoading(true)
         const data = await api.logar(username, password)
@@ -22,19 +24,19 @@ export const AuthProvider = ({ children }) => {
             setUserData(data.user.data[0])
             setUserDocentes(data.user.meusdocentes)
             setisLoading(false)
+            return true
         }
+        else{
+            return false
+        }
+        
     }
 
-    const validaToken = async () => {
-        setisLoading(true)
-         const token = await AsyncStorage.getItem('token')
-         api.validarToken(token)
-        setisLoading(false)
-
-    }
 
     const logOut = () => {
+        setisLoading(true)
         setUserToken(null)
+        setisLoading(false)
         AsyncStorage.removeItem('token')
 
     }
@@ -48,7 +50,7 @@ export const AuthProvider = ({ children }) => {
             const userToken = await AsyncStorage.getItem('token')
             if (userToken) {
                 const isValidade = await api.validarToken(userToken)
-                if(isValidade.auth){
+                if (isValidade.auth) {
                     setUserToken(userToken)
                     setUserData(isValidade.user.data[0])
                     setUserDocentes(isValidade.user.meusdocentes)
@@ -66,8 +68,8 @@ export const AuthProvider = ({ children }) => {
         IsLoggedIn()
 
     }, [])
-  
-    
+
+
 
     return (
         <AuthContext.Provider value={{ userData, userDocentes, login, logOut, IsLoggedIn, SignIn, userToken }}>

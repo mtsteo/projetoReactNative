@@ -29,7 +29,7 @@ const MeusDocentes = () => {
         return (
             <CardsSmall key={docente.id_docente}
                 nomeDocente={docente.nome}
-                imgUrl ={"https://cdn-icons-png.flaticon.com/512/4556/4556329.png"}
+                imgUrl={"https://cdn-icons-png.flaticon.com/512/4556/4556329.png"}
                 sobrenomeDocente={docente.sobrenome}
             />
         )
@@ -38,9 +38,9 @@ const MeusDocentes = () => {
     return (
         <View>
             <ScrollView>
-                <View style={style.profiles}>
-                    {profiles}
-                </View>
+                    <View style={style.profiles}>
+                        {profiles}
+                    </View>
             </ScrollView>
         </View>
     )
@@ -64,12 +64,12 @@ const style = StyleSheet.create({
         color: "#fff"
     },
     profiles: {
-        justifyContent: "center",
+        justifyContent:"center",
         marginTop: "5%",
         flex: 1,
         flexDirection: 'row',
         flexWrap: 'wrap',
-        alignItems: 'center'
+        
     }
 
 })

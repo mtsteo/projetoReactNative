@@ -25,8 +25,8 @@ const CustomDrawer = (props) => {
   return (
     <View style={{ flex: 1 }}>
       <View style={{ padding: 30, borderBottomEndRadius: 20, borderBottomStartRadius: 20, justifyContent: "space-between", backgroundColor: Styles.Colors.colorGreen }}>
-      <Image source={!userData.fotoRef ? {uri:`https://storage.googleapis.com/sistemaaval/${userData.fotoRef}.png`}:
-                    {uri:`https://storage.googleapis.com/sistemaaval/${userData.fotoRef}.png`}} style={{ height: 80, width: 80, borderRadius: 40, marginBottom: 10,backgroundColor: 'rgba(255,255,255, 0.5)', }} />
+      <Image source={!userData.fotoRef ? {uri:`https://storage.googleapis.com/sistemaaval/0.png`}:
+                    {uri:`https://storage.googleapis.com/sistemaaval/${userData.fotoRef}.jpg`}} style={{ height: 80, width: 80, borderRadius: 40, marginBottom: 10,backgroundColor: 'rgba(255,255,255, 0.5)', }} />
         <Text style={{ fontFamily: 'Roboto_700Bold', fontSize: 20, color: Styles.Colors.coloWhite }}>{userData.nome_discente + " " + userData.sobrenome}</Text>
       </View>
       <DrawerContentScrollView {...props}  >
