@@ -9,7 +9,7 @@ import PopupLayout from '../../components/PopupLayout';
 import { TouchableOpacity } from 'react-native';
 
 
-const LoginPage = () => {
+const LoginPage = ({navigation}) => {
     const [username, setUsername] = useState('')
     const [password, setPassword] = useState('')
     const [erroMsg, setErroMsg] = useState(false)
@@ -43,7 +43,6 @@ const LoginPage = () => {
     return (
         <View style={{ flex: 1, backgroundColor: Styles.Colors.colorGreen }}>
             <Modal
-                
                 isVisible={erroMsg}
                 style={{ flex: 1, }}>
                 <View>
@@ -67,7 +66,7 @@ const LoginPage = () => {
                 loginButtonStyle={{ backgroundColor: Styles.Colors.colorOrange }}
                 signupText='Crie uma CONTA' style={{ marginTop: 90, backgroundColor: Styles.Colors.colorGreen }}
                 onLoginPress={() => { handleLogin() }}
-                onSignupPress={() => { handleLogin() }}
+                onSignupPress={() => navigation.navigate('Registrar')}
                 onEmailChange={(value) => {
                     setUsername(value);
                 }}

@@ -7,7 +7,7 @@ import { AuthContext } from '../../contexts/AuthContext';
 
 
 const statusBarHeight = StatusBar.currentHeight ? StatusBar.currentHeight + 22 : 64
-export default function Header({ navigation,}) {
+export default function Header({ navigation}) {
     const {userData} = useContext(AuthContext)
 
 
