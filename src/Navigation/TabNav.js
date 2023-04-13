@@ -13,7 +13,7 @@ import { View } from 'react-native';
 
 const Tab = createBottomTabNavigator();
 
-export default function TabNav({ navigation }) {
+export default function TabNav() {
 
     const [fontsLoaded] = useFonts({
         Roboto_100Thin,
@@ -29,7 +29,7 @@ export default function TabNav({ navigation }) {
 
             <Tab.Navigator screenOptions={{
                 header: (({ navigation }) => {
-                    return (<Header navigation={navigation} name='Mateus' />)
+                    return (<Header navigation={navigation} />)
                 }),
                 tabBarHideOnKeyboard: true,
                 tabBarActiveTintColor: Styles.Colors.colorOrange,

@@ -1,7 +1,7 @@
 import React from 'react'
 import { createNativeStackNavigator } from '@react-navigation/native-stack';
 import LoginPage from '../screens/loginPage/';
-import RegisterPage from '../screens/RegisterPage';
+import RecoveryPage from '../screens/RecoveryPage';
 import { useFonts, Roboto_100Thin, Roboto_700Bold, Roboto_400Regular } from '@expo-google-fonts/roboto';
 import Styles from '../Styles/Styles';
 
@@ -31,7 +31,7 @@ export default function AuthStack() {
                 headerTitleStyle:{fontFamily:"Roboto_700Bold", color:Styles.Colors.coloWhite},
                 headerTintColor:'white',
                 headerStyle: { backgroundColor: Styles.Colors.colorGreen }
-            }} component={RegisterPage} name='Registrar' />
+            }} component={RecoveryPage} name='Recuperar Senha' />
         </Stack.Navigator>
     )
 }

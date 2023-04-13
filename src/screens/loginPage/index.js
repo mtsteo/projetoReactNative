@@ -64,9 +64,9 @@ const LoginPage = ({navigation}) => {
                 passwordPlaceholder='Digite sua SENHA'
                 emailPlaceholder='Digite seu USUÁRIO'
                 loginButtonStyle={{ backgroundColor: Styles.Colors.colorOrange }}
-                signupText='Crie uma CONTA' style={{ marginTop: 90, backgroundColor: Styles.Colors.colorGreen }}
+                signupText='Esqueci minha SENHA!' style={{ marginTop: 90, backgroundColor: Styles.Colors.colorGreen }}
                 onLoginPress={() => { handleLogin() }}
-                onSignupPress={() => navigation.navigate('Registrar')}
+                onSignupPress={() => navigation.navigate('Recuperar Senha')}
                 onEmailChange={(value) => {
                     setUsername(value);
                 }}

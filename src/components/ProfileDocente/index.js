@@ -18,9 +18,6 @@ const ProfileDocente = (props) => {
   if (!fontsLoaded) {
     return null;
   }
-
-
-
   return (
     <ScrollView>
       <View style={styles.container} >
