@@ -1,12 +1,13 @@
 import axios from "axios";
 
 const api = axios.create({
-    baseURL: "http://192.168.1.107:8800",
+    baseURL: "http://192.168.1.103:8800",
     headers: {
         Accept: 'application/json',
         'Content-Type': 'application/json'
     }
 });
+
 
 export const API = () => ({
     validarToken: async (token) => {
@@ -25,7 +26,6 @@ export const API = () => ({
         } catch (error) {
             console.log(error)
         }
-
     },
     sair: async () => {
         const response = await api.post('/logout');
@@ -35,5 +35,4 @@ export const API = () => ({
         const response = await api.get('/docentes')
         return response.data;
     },
-    
 });

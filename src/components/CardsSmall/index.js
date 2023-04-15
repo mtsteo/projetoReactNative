@@ -4,6 +4,7 @@ import Styles from '../../Styles/Styles';
 import { useState } from 'react';
 import { useFonts, Roboto_100Thin, Roboto_700Bold, Roboto_400Regular } from '@expo-google-fonts/roboto';
 import ModalProfile from '../ModalProfile';
+import ModalAval from '../ModalAval';
 
 
 export default function CardsSmall(props) {
@@ -27,6 +28,14 @@ export default function CardsSmall(props) {
                 imgUrl={props.imgUrl}
                 visible={isOpenProfile}
                 closeModal={() => { setIsOpenProfile(false) }} />
+
+            <ModalAval
+                nomeDocente={props.nomeDocente}
+                sobrenomeDocente={props.sobrenomeDocente}
+                imgUrl={props.imgUrl}
+                visible={isOpenModalAval}
+                closeModal={() => { setIsOpenModalAval(false) }}
+            />
             <Card style={{ width: 160, height: 300 }} >
                 <Card.Cover source={{ uri: props.imgUrl }} style={{ height: 150 }} />
                 <Card.Content>
@@ -37,7 +46,7 @@ export default function CardsSmall(props) {
                         <TouchableOpacity onPress={() => setIsOpenProfile(true)} style={styles.btnVerPerfil}>
                             <Text style={{ fontFamily: "Roboto_700Bold", fontSize: 20, color: "#fff" }}>Perfil</Text>
                         </TouchableOpacity>
-                        <TouchableOpacity onPress={() => { }} style={styles.btnAvaliar}>
+                        <TouchableOpacity onPress={() => {setIsOpenModalAval(true)}} style={styles.btnAvaliar}>
                             <Text style={{ fontFamily: "Roboto_700Bold", fontSize: 20, color: "#fff" }}>Avaliar</Text>
                         </TouchableOpacity>
                     </View>
