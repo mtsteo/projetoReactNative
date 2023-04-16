@@ -73,6 +73,54 @@ const ModalAval = ({ visible, closeModal, nomeDocente, sobrenomeDocente, imgUrl 
 
                                         </Card.Content>
                                     </Card>
+                                    <Card style={styles.criterios.cardProp}>
+                                        <Card.Content>
+                                            <View style={styles.criterios.cardProp.cardHeader}>
+                                                <Text style={styles.criterios.criterioTitle}>
+                                                    Metodologia
+                                                </Text>
+                                            </View>
+                                            <View>
+                                                <AirbnbRating
+                                                    reviews={['Péssimo', 'Ruim', 'Bom', 'Ótimo', 'Excelente']}
+                                                    size={30}
+                                                    defaultRating={3}
+                                                    reviewSize={25}
+                                                    showRating
+                                                    reviewColor={MetodologiacolorReview}
+                                                    onFinishRating={(e) =>{
+                                                        const color = ReturnColor(e)
+                                                        setMetodologiaColorReview(color)
+                                                    }}
+                                                />
+                                            </View>
+
+                                        </Card.Content>
+                                    </Card>
+                                    <Card style={styles.criterios.cardProp}>
+                                        <Card.Content>
+                                            <View style={styles.criterios.cardProp.cardHeader}>
+                                                <Text style={styles.criterios.criterioTitle}>
+                                                    Metodologia
+                                                </Text>
+                                            </View>
+                                            <View>
+                                                <AirbnbRating
+                                                    reviews={['Péssimo', 'Ruim', 'Bom', 'Ótimo', 'Excelente']}
+                                                    size={30}
+                                                    defaultRating={3}
+                                                    reviewSize={25}
+                                                    showRating
+                                                    reviewColor={comprometimentocolorReview}
+                                                    onFinishRating={(e) =>{
+                                                        const color = ReturnColor(e)
+                                                        setComprometimentoColorReview(color)
+                                                    }}
+                                                />
+                                            </View>
+
+                                        </Card.Content>
+                                    </Card>
                                 </View>
                             </Card.Content>
                         </Card>
