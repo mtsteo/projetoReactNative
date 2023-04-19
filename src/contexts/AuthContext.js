@@ -11,7 +11,7 @@ export const AuthProvider = ({ children }) => {
     const [userData, setUserData] = useState([]);
     const [userDocentes, setUserDocentes] = useState([]);
     const [isLoading, setisLoading] = useState(false);
-    const [userToken, setUserToken] = useState(null)
+    const [userToken, setUserToken] = useState()
 
 
 
@@ -26,10 +26,10 @@ export const AuthProvider = ({ children }) => {
             setisLoading(false)
             return true
         }
-        else{
+        else {
             return false
         }
-        
+
     }
 
 
@@ -54,6 +54,10 @@ export const AuthProvider = ({ children }) => {
                     setUserToken(userToken)
                     setUserData(isValidade.user.data[0])
                     setUserDocentes(isValidade.user.meusdocentes)
+                } else {
+                    setUserToken(null)
+
+
                 }
             } else {
                 setUserToken(null)

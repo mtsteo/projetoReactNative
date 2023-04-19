@@ -12,34 +12,42 @@ const ModalAval = ({ visible, closeModal, nomeDocente, sobrenomeDocente, imgUrl 
     const [DitaticacolorReview, setDidaticaColorReview] = React.useState()
     const [MetodologiacolorReview, setMetodologiaColorReview] = React.useState()
     const [comprometimentocolorReview, setComprometimentoColorReview] = React.useState()
-    
 
-    const ReturnColor = (rating)=>{
-        if (rating <= 2){
-            return Styles.Colors.colorRed
-        }if(rating > 2 && rating <= 3){
-            return Styles.Colors.colorOrange
-        }else{
-            return Styles.Colors.colorGreen
+    const [Ditatica, setDitatica] = React.useState(3)
+    const [Metodologia, setMetodologia] = React.useState(3)
+    const [Comprometimento, setComprometimento] = React.useState(3)
+
+    const SendAval = () => {
+        if (Ditatica && Metodologia && Comprometimento) {
+            console.log(Ditatica, Metodologia, Comprometimento)
         }
     }
 
- 
+
+    const ReturnColor = (rating) => {
+        if (rating <= 2) {
+            return Styles.Colors.colorRed
+        } if (rating > 2 && rating <= 3) {
+            return Styles.Colors.colorOrange
+        } else {
+            return Styles.Colors.colorGreen
+        }
+    }
 
 
     return (
 
         <Modal isVisible={visible}>
             <View>
-                <ScrollView>
-                    <View style={styles.container} >
-                        <Card>
-                            <View style={styles.header}>
-                                <Card.Cover source={{ uri: imgUrl }} style={{ width: 70, height: 70 }} />
-                                <Text style={{ fontFamily: "Roboto_700Bold", fontSize: 25, marginLeft: 10 }}>
-                                    {nomeDocente + " " + sobrenomeDocente}
-                                </Text>
-                            </View>
+                <View style={styles.container} >
+                    <Card>
+                        <View style={styles.header}>
+                            <Card.Cover source={{ uri: imgUrl }} style={{ width: 70, height: 70 }} />
+                            <Text style={{ fontFamily: "Roboto_700Bold", fontSize: 25, marginLeft: 10 }}>
+                                {nomeDocente + " " + sobrenomeDocente}
+                            </Text>
+                        </View>
+                        <ScrollView>
                             <Card.Content>
                                 <View style={{ marginTop: 10 }}>
                                     <View style={{ justifyContent: "center", alignItems: "center" }}>
@@ -58,19 +66,21 @@ const ModalAval = ({ visible, closeModal, nomeDocente, sobrenomeDocente, imgUrl 
                                             </View>
                                             <View>
                                                 <AirbnbRating
+
                                                     reviews={['Péssimo', 'Ruim', 'Bom', 'Ótimo', 'Excelente']}
                                                     size={30}
-                                                    defaultRating={3}
+                                                    defaultRating={Ditatica}
                                                     reviewSize={25}
                                                     showRating
                                                     reviewColor={DitaticacolorReview}
-                                                    onFinishRating={(e) =>{
+                                                    onFinishRating={(e) => {
                                                         const color = ReturnColor(e)
                                                         setDidaticaColorReview(color)
+                                                        setDitatica(e)
+
                                                     }}
                                                 />
                                             </View>
-
                                         </Card.Content>
                                     </Card>
                                     <Card style={styles.criterios.cardProp}>
@@ -84,17 +94,18 @@ const ModalAval = ({ visible, closeModal, nomeDocente, sobrenomeDocente, imgUrl 
                                                 <AirbnbRating
                                                     reviews={['Péssimo', 'Ruim', 'Bom', 'Ótimo', 'Excelente']}
                                                     size={30}
-                                                    defaultRating={3}
+                                                    defaultRating={Metodologia}
                                                     reviewSize={25}
                                                     showRating
                                                     reviewColor={MetodologiacolorReview}
-                                                    onFinishRating={(e) =>{
+                                                    onFinishRating={(e) => {
                                                         const color = ReturnColor(e)
                                                         setMetodologiaColorReview(color)
+                                                        setMetodologia(e)
+
                                                     }}
                                                 />
                                             </View>
-
                                         </Card.Content>
                                     </Card>
                                     <Card style={styles.criterios.cardProp}>
@@ -108,31 +119,36 @@ const ModalAval = ({ visible, closeModal, nomeDocente, sobrenomeDocente, imgUrl 
                                                 <AirbnbRating
                                                     reviews={['Péssimo', 'Ruim', 'Bom', 'Ótimo', 'Excelente']}
                                                     size={30}
-                                                    defaultRating={3}
+                                                    defaultRating={Comprometimento}
                                                     reviewSize={25}
                                                     showRating
                                                     reviewColor={comprometimentocolorReview}
-                                                    onFinishRating={(e) =>{
+                                                    onFinishRating={(e) => {
                                                         const color = ReturnColor(e)
                                                         setComprometimentoColorReview(color)
+                                                        setComprometimento(e)
                                                     }}
                                                 />
                                             </View>
-
                                         </Card.Content>
                                     </Card>
                                 </View>
+                                <View style={{ justifyContent: "center", alignItems: "center" }}>
+                                    <TouchableOpacity style={styles.btnFechar}>
+                                        <Button onPress={SendAval} title="Avaliar" color={Styles.Colors.colorOrange} />
+                                    </TouchableOpacity>
+                                </View>
                             </Card.Content>
-                        </Card>
-                    </View>
-                </ScrollView>
+                        </ScrollView>
+                    </Card>
+                </View>
                 <View style={{ justifyContent: "center", alignItems: "center" }}>
                     <TouchableOpacity style={styles.btnFechar} onPress={closeModal}>
                         <Button onPress={closeModal} title="Fechar" color={Styles.Colors.colorOrange} />
                     </TouchableOpacity>
                 </View>
             </View>
-        </Modal>
+        </Modal >
 
     );
 }
@@ -157,7 +173,7 @@ const styles = StyleSheet.create({
         criterioTitle: {
             fontFamily: "Roboto_700Bold",
             fontSize: 20,
-           
+
         },
         cardProp: {
             margin: 5,
